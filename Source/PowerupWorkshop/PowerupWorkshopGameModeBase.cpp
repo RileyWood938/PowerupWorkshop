@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
-#include "CharacterController.h"
 
 #include "PowerupWorkshopGameModeBase.h"
+#include "CharacterController.h"
 
 APowerupWorkshopGameModeBase::APowerupWorkshopGameModeBase()
 {

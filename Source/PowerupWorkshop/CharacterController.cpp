@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Math/Vector.h"
 #include "CharacterController.h"
+#include "Math/Vector.h"
 
 // Sets default values
 ACharacterController::ACharacterController()
