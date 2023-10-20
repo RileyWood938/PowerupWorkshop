@@ -36,10 +36,7 @@ void APowerup::Activate() {
 }
 
 void APowerup::Tick(float DeltaTime) {
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Tick"));
-
 	Super::Tick(DeltaTime);
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Tick"));
 
 }
 void APowerup::Deactivate() {

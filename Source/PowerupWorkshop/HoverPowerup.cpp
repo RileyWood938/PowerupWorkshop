@@ -43,9 +43,10 @@ void AHoverPowerup::Tick(float DeltaTime){
 
 	Super::Tick(DeltaTime);
 
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Tick"));
 
 	if (isActive) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Tick"));
+
 		character->LaunchCharacter(FVector(0, 100, 0), false, false);
 	}
 }
