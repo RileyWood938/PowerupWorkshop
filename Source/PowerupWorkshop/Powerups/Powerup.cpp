@@ -20,8 +20,7 @@ APowerup::APowerup(int inDuration)
 APowerup::~APowerup()
 {
 }
-void APowerup::Activate(UCharacterMovementComponent* inTargetMovementComponent) {
-	this->targetMovementComponent = inTargetMovementComponent;
+void APowerup::Activate() {
 	isActive = true;
 
 	FTimerDelegate TimerDelegate;
@@ -35,6 +34,10 @@ void APowerup::Activate(UCharacterMovementComponent* inTargetMovementComponent) 
 }
 
 void APowerup::Deactivate() {
+	isActive = false;
+}
 
+bool APowerup::IsActive() {
+	return isActive;
 }
 

@@ -7,6 +7,7 @@
 #include "Components/SphereComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include <GameFramework/CharacterMovementComponent.h>
 #include "SpeedPowerup.generated.h"
 
 UCLASS()
@@ -18,10 +19,13 @@ public:
 	ASpeedPowerup();
 	ASpeedPowerup(int inDuration);
 	~ASpeedPowerup();
-	virtual void Activate(UCharacterMovementComponent* inTargetMovementComponent) override;
+	virtual void Activate() override;
 	virtual void Deactivate() override;
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+private:
+	UCharacterMovementComponent* targetMovementComponent;
+	float startingSpeed;
 };

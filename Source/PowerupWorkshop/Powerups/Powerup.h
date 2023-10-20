@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include <GameFramework/CharacterMovementComponent.h>
 #include "Powerup.generated.h"
 
 /**
@@ -20,15 +19,12 @@ public:
 	APowerup(int inDuration);
 	~APowerup();
 	bool IsActive();
-	virtual void Activate(UCharacterMovementComponent* inTargetMovementComponent);
+	virtual void Activate();
 	virtual void Deactivate();
 
 private:
 	int duration;
 	bool isActive;
 	FTimerHandle handle;
-
-protected:
-	UCharacterMovementComponent* targetMovementComponent;
 
 };
