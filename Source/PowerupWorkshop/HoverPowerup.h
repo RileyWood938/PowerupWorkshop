@@ -2,25 +2,28 @@
 
 #pragma once
 
-#include "Powerup.h"
-#include "UObject/ConstructorHelpers.h"
-#include "Components/SphereComponent.h"
 #include "CoreMinimal.h"
+#include "Powerups/Powerup.h"
 #include "GameFramework/Actor.h"
+#include "Components/SphereComponent.h"
 #include <GameFramework/CharacterMovementComponent.h>
-#include "SpeedPowerup.generated.h"
+#include "HoverPowerup.generated.h"
 
+/**
+ * 
+ */
 UCLASS()
-class POWERUPWORKSHOP_API ASpeedPowerup : public APowerup
+class POWERUPWORKSHOP_API AHoverPowerup : public APowerup
 {
 	GENERATED_BODY()
 
-public:	
-	ASpeedPowerup();
-	ASpeedPowerup(int inDuration);
-	~ASpeedPowerup();
+public:
+	AHoverPowerup();
+	AHoverPowerup(int inDuration);
+	~AHoverPowerup();
 	virtual void Activate() override;
 	virtual void Deactivate() override;
+	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -29,5 +32,6 @@ private:
 	UCharacterMovementComponent* targetMovementComponent;
 	float startingSpeed;
 	float startingAcceleration;
+	ACharacter* character;
 
 };

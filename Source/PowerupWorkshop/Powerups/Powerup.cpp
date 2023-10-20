@@ -8,6 +8,8 @@ APowerup::APowerup()
 {
 	duration = 2;
 	isActive = false;
+	PrimaryActorTick.bCanEverTick = true;
+
 }
 
 APowerup::APowerup(int inDuration)
@@ -33,6 +35,13 @@ void APowerup::Activate() {
 		false); // looping?
 }
 
+void APowerup::Tick(float DeltaTime) {
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Tick"));
+
+	Super::Tick(DeltaTime);
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Tick"));
+
+}
 void APowerup::Deactivate() {
 	isActive = false;
 }

@@ -21,10 +21,14 @@ public:
 	bool IsActive();
 	virtual void Activate();
 	virtual void Deactivate();
+	virtual void Tick(float DeltaTime) override;
 
-private:
+protected:
 	int duration;
 	bool isActive;
+
+
+private:
 	FTimerHandle handle;
 
 };
