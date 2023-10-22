@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Powerups/Powerup.h"
+#include "Powerup.h"
 #include "GameFramework/Actor.h"
 #include "Components/SphereComponent.h"
 #include <GameFramework/CharacterMovementComponent.h>

@@ -16,7 +16,7 @@ AHoverPowerup::AHoverPowerup() {
 	CollisionComponent->SetGenerateOverlapEvents(true); // Enable overlap events
 	CollisionComponent->OnComponentBeginOverlap.AddDynamic(this, &AHoverPowerup::OnOverlapBegin);
 	startingSpeed = 0;
-	duration = 5;
+	duration = 10;
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bTickEvenWhenPaused = false;
 	PrimaryActorTick.TickGroup = TG_PrePhysics;
@@ -45,9 +45,14 @@ void AHoverPowerup::Tick(float DeltaTime){
 
 
 	if (isActive) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Tick"));
+			float upForce = ((1000 - character->GetActorLocation().Z));
+			float dampingForce = character->GetVelocity().Z;
+			if (dampingForce != 0) {
+				upForce = upForce - (dampingForce * 0.4f);
+			}
+			FVector JumpImpulse = FVector(0.0f, 0.0f, upForce);
 
-		character->LaunchCharacter(FVector(0, 100, 0), false, false);
+			character->LaunchCharacter(JumpImpulse, false, false);
 	}
 }
 
